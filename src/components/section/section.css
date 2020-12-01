@@ -1,0 +1,37 @@
+.section {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  padding: 6.875rem 1.25rem;
+}
+.section h1 {
+  font-size: 4.375rem;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0;
+}
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0.625rem 0 0 0;
+  position: relative;
+
+}
+.section h2::after {
+  display: block;
+  content: "";
+  width: 12rem;
+  height: 0.2rem;
+  border-radius: 0.5rem;
+  background: var(--primary);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 1.625rem);
+}
+
+.sub-section {
+  max-width: 55rem;
+  margin: 0 auto;
+}

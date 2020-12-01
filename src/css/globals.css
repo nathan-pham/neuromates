@@ -1,0 +1,29 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+/* Theme */
+:root {
+  --primary: #005eff;
+  --secondary: #f4004d;
+  --grey: #eeeeee;
+}
+
+/* Global Resets */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
