@@ -1,7 +1,7 @@
 const gameData = [
     {
         name: "Lumosity",
-        href: "www.lumosity.com"
+        href: "https://www.lumosity.com"
     }, 
     {
         name: "AARP",
