@@ -1,7 +1,6 @@
 .stages {
   clear: both;
   list-style: none;
-  line-height: 1.4;
 }
 .stages > li {
   margin: 1rem 0;
@@ -26,4 +25,75 @@
 .stages > li h2 {
   display: inline-block;
   margin: 0;
+}
+
+.food-selection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.food-selection .food-item {
+  flex: 0 0 25%;
+  height: 10rem;
+  position: relative;
+}
+.food-selection .food-item.active {
+  flex: 0 0 100%;
+  height: 30rem;
+}
+.food-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.food-item.active img {
+  filter: brightness(0.7);
+}
+.food-item .description {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #fff;
+}
+.food-item .description h2 {
+  margin: 0 0 0.5rem 0;
+}
+.food-item .description p {
+  margin: 0;
+}
+
+.game-wrapper .game-item {
+  padding: 1rem;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  margin: 0 0 1rem 0;
+  overflow: hidden;
+}
+.game-item i {
+  opacity: 0;
+  transform: translateX(4rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.game-item:hover i {
+  opacity: 1;
+  transform: translateX(0);
+}
+.game-item:nth-child(even) {
+  background: var(--secondary);
+}
+
+.handout {
+  padding: 2rem;
+  background: var(--grey);
+  border-radius: 0.5rem;
+}
+.handout a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.handout a:hover {
+  text-decoration: underline;
 }
