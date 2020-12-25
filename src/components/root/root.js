@@ -1,4 +1,5 @@
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 const rootStyle = {
   position: "relative",
@@ -17,6 +18,7 @@ const Root = (props) => {
       >
         {props.children}
       </div>
+      <Footer />
     </>
   );
 };
