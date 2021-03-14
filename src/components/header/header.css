@@ -36,6 +36,11 @@
   margin: 0 0.5rem;
   text-decoration: none;
   position: relative;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
 }
 .document-header .navigation .link.active {
   color: var(--primary);
