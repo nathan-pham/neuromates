@@ -22,7 +22,7 @@ const Disclaimer = () => {
 
     const closeDisclaimer = () => {
         localStorage.setItem("visible", "false");
-        setVisible(false)
+        setVisible(false);
     }
 
     return visible 
