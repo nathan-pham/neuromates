@@ -13,6 +13,10 @@ const Disclaimer = () => {
             fetched = true
         }
 
+        if(!fetched) {
+            fetch("https://api.countapi.xyz/hit/neuromates.com/visits")
+        }
+
         setVisible(fetched)
     }, [])
 
