@@ -23,8 +23,12 @@ class Header extends Component {
     this.handleHash = this.handleHash.bind(this);
   }
   scrollHash() {
-    const element = document.querySelector(`section[id="${this.state.active.substring(1)}"]`)
-    element.scrollIntoView();
+    const element = document.querySelector(`section[id="${this.state.active.substring(1)}"]`);
+    element
+      ? element.scrollIntoView()
+      : this.setState({
+        active: "#overview"
+      });
   }
   componentDidMount() {
     window.addEventListener("hashchange", this.handleHash);
