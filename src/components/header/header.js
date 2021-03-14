@@ -25,11 +25,9 @@ class Header extends Component {
   }
   scrollHash() {
     const section = document.querySelector(`section[id="${this.state.active.substring(1)}"]`);
-    section
-      ? section.scrollIntoView()
-      : this.setState({
-        active: "#overview"
-      });
+    if(section) {
+      section.scrollIntoView();
+    }
   }
   onScroll() {
     const sections = document.getElementsByClassName("section");
@@ -46,9 +44,6 @@ class Header extends Component {
   componentDidMount() {
     window.addEventListener("hashchange", this.handleHash);
     document.body.addEventListener("scroll", this.onScroll);
-    this.scrollHash();
-  }
-  componentDidUpdate() {
     this.scrollHash();
   }
   componentWillUnmount() {
