@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-
 import "./header.css";
 
-const HeaderLink = ({ hash, className }) => {
+const HeaderLink = ({ title, onClick, className }) => {
   return (
-    <a
-      className={`link ${className ? "active" : ""}`}
-      href={"#" + hash.toLowerCase()}
+    <button
+      className={`link ${ className ? "active" : "" }`}
+      onClick={ onClick }
     >
-      {hash}
-    </a>
+      { title }
+    </button>
   );
 };
 
@@ -17,14 +16,14 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: window.location.hash ? window.location.hash : "#overview",
+      active: "overview",
     };
 
-    this.handleHash = this.handleHash.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
     this.onScroll = this.onScroll.bind(this);
   }
-  scrollHash() {
-    const section = document.querySelector(`section[id="${this.state.active.substring(1)}"]`);
+  scrollTo(title) {
+    const section = document.querySelector(`section[id="${ title }"]`);
     if(section) {
       section.scrollIntoView();
     }
@@ -35,25 +34,17 @@ class Header extends Component {
       const bound = section.getBoundingClientRect();
       if(window.scrollY >= bound.top) {
         this.setState({
-          active: `#${section.id}`
-        })
+          active: section.id
+        });
         return;
       }
     })
   }
   componentDidMount() {
-    window.addEventListener("hashchange", this.handleHash);
     document.body.addEventListener("scroll", this.onScroll);
-    this.scrollHash();
   }
   componentWillUnmount() {
-    window.removeEventListener("hashchange", this.handleHash);
     document.body.removeEventListener("scroll", this.onScroll);
-  }
-  handleHash() {
-    this.setState({
-      active: window.location.hash,
-    });
   }
   render() {
     const links = [
@@ -62,11 +53,12 @@ class Header extends Component {
       "health",
       "games",
       "tips",
-    ].map((title) => (
+    ].map((title, i) => (
       <HeaderLink
-        key={title}
-        hash={title}
-        className={this.state.active === "#" + title}
+        key={ i }
+        title={ title }
+        className={ this.state.active === title }
+        onClick={ () => this.scrollTo(title) }
       />
     ));
     return (
