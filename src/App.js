@@ -1,7 +1,7 @@
 import Root from "./components/root/root";
-import {Section, Subsection} from "./components/section/section";
+import { Section, Subsection } from "./components/section/section";
+import Disclaimer from "./components/disclaimer/disclaimer";
 import Scene from "./components/section/matter/scene";
-
 import Stages from "./components/pages/stages";
 import Health from "./components/pages/health";
 import Games from "./components/pages/games";
@@ -30,6 +30,7 @@ function App() {
       <Subsection>
         <Tips />
       </Subsection>
+      <Disclaimer />
     </Root>
   );
 }

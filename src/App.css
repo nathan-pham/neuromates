@@ -89,6 +89,7 @@
   padding: 2rem;
   background: var(--grey);
   border-radius: 0.5rem;
+  border: 0.1rem solid var(--border-grey);
 }
 .handout a {
   color: var(--primary);
