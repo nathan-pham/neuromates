@@ -34,7 +34,7 @@ const Games = () => {
     return (
         <div className="game-wrapper flex direction-column">
             {
-                gameData.map(v => <GameItem { ...v }/>)
+                gameData.map((v, i) => <GameItem { ...v } key={ i } />)
             }
         </div>
     )

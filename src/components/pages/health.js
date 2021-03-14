@@ -105,7 +105,7 @@ const Health = () => {
                         return data
                     }).sort((a, b) => {
                         return a.active * 1 - b.active *1;
-                    }).map(v => <FoodItem { ...v } />)
+                    }).map((v, i) => <FoodItem { ...v } key={ i } />)
                 }
             </div>
         </>
