@@ -21,17 +21,31 @@ class Header extends Component {
     };
 
     this.handleHash = this.handleHash.bind(this);
+    this.onScroll = this.onScroll.bind(this);
   }
   scrollHash() {
-    const element = document.querySelector(`section[id="${this.state.active.substring(1)}"]`);
-    element
-      ? element.scrollIntoView()
+    const section = document.querySelector(`section[id="${this.state.active.substring(1)}"]`);
+    section
+      ? section.scrollIntoView()
       : this.setState({
         active: "#overview"
       });
   }
+  onScroll() {
+    const sections = document.getElementsByClassName("section");
+    [...sections].forEach(section => {
+      const bound = section.getBoundingClientRect();
+      if(window.scrollY >= bound.top) {
+        this.setState({
+          active: `#${section.id}`
+        })
+        return;
+      }
+    })
+  }
   componentDidMount() {
     window.addEventListener("hashchange", this.handleHash);
+    document.body.addEventListener("scroll", this.onScroll);
     this.scrollHash();
   }
   componentDidUpdate() {
@@ -39,6 +53,7 @@ class Header extends Component {
   }
   componentWillUnmount() {
     window.removeEventListener("hashchange", this.handleHash);
+    document.body.removeEventListener("scroll", this.onScroll);
   }
   handleHash() {
     this.setState({
